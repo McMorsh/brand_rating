@@ -60,3 +60,17 @@ def test_cli_main_error_empty_file(monkeypatch):
         cli_main()
 
     assert e.value.code == 3
+
+
+def test_cli_main_error_no_name_report(monkeypatch):
+    args = [
+        "--files",
+        str(DATA_DIR / "test_data_1.csv"),
+        str(DATA_DIR / "test_data_2.csv"),
+        "--report",
+        "low-rating"
+    ]
+    monkeypatch.setattr("sys.argv", ["main.py"] + args)
+
+    with pytest.raises(Exception) as e:
+        cli_main()
