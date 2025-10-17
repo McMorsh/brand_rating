@@ -23,7 +23,7 @@ class Report:
         raise NotImplementedError
 
 
-class RatingReport:
+class RatingReport(Report):
     """
     Класс формирующий отчет "average-rating"
 
